@@ -554,3 +554,273 @@
 .footer-bottom-link:hover {
   opacity: 0.8;
 }
+/* ── Hero ── */
+.hero-root {
+  background-color: var(--color-burgundy);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle background texture — organic geometry feel */
+.hero-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(247, 191, 4, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(245, 237, 232, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 88vh;
+  align-items: center;
+  gap: 3rem;
+  padding-block: 6rem 4rem;
+}
+
+@media (min-width: 640px)  { .hero-inner { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) {
+  .hero-inner {
+    padding-inline: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding-block: 0;
+  }
+}
+
+/* Left col */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border-bottom: 1.5px solid var(--color-gold);
+  padding-bottom: 4px;
+  width: fit-content;
+}
+
+.hero-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--color-cream-warm);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: var(--color-cream);
+  opacity: 0.8;
+  line-height: 1.75;
+  max-width: 42ch;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.hero-btn-primary {
+  display: inline-block;
+  background-color: var(--color-gold);
+  color: var(--color-burgundy-dark);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.8rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.hero-btn-primary:hover { background-color: var(--color-gold-dark); }
+
+.hero-btn-outline {
+  display: inline-block;
+  border: 1.5px solid rgba(245, 237, 232, 0.4);
+  color: var(--color-cream-warm);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding: 0.8rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.hero-btn-outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* Stat strip */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid rgba(245, 237, 232, 0.15);
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-stat-num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.hero-stat-lbl {
+  font-size: 0.7rem;
+  color: var(--color-cream);
+  opacity: 0.6;
+  letter-spacing: 0.03em;
+}
+
+.hero-stat-divider {
+  width: 0.5px;
+  height: 2rem;
+  background-color: rgba(245, 237, 232, 0.2);
+}
+
+/* Right col */
+.hero-image-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Placeholder — remove when real image is ready */
+.hero-image-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-burgundy-dark);
+  border-radius: 20px 20px 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid rgba(245, 237, 232, 0.1);
+}
+
+.hero-placeholder-text {
+  font-size: 0.8rem;
+  color: var(--color-cream);
+  opacity: 0.3;
+}
+
+/*
+  When real image is ready, replace .hero-image-placeholder with:
+
+  <div className="hero-image-real">
+    <Image
+      src="/images/hero-photo.jpg"
+      alt="Holy Child alumni"
+      fill
+      className="hero-img"
+      priority
+    />
+  </div>
+
+  And add these styles:
+  .hero-image-real {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 20px 20px 80px 20px;
+    overflow: hidden;
+  }
+  .hero-img { object-fit: cover; object-position: top center; }
+*/
+
+/* Floating badge — top right overlap */
+.hero-badge {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(247, 191, 4, 0.3);
+}
+
+.hero-badge-num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-burgundy-dark);
+  line-height: 1;
+}
+
+.hero-badge-lbl {
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: var(--color-burgundy-dark);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Floating card — bottom left overlap */
+.hero-float-card {
+  position: absolute;
+  bottom: 1.5rem;
+  left: -1.5rem;
+  background-color: var(--color-cream-warm);
+  border-radius: 12px;
+  padding: 0.875rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 8px 32px rgba(26, 14, 12, 0.2);
+}
+
+.hero-float-num {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-burgundy);
+  line-height: 1;
+}
+
+.hero-float-lbl {
+  font-size: 0.7rem;
+  color: var(--color-text-body);
+  opacity: 0.7;
+}
