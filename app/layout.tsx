@@ -56,4 +56,6 @@ export default function RootLayout({
   );
 }
 
-{/* <Script src="https://js.paystack.co/v1/inline.js" strategy="beforeInteractive" /> */}
+{
+  /* <Script src="https://js.paystack.co/v1/inline.js" strategy="beforeInteractive" /> */
+}

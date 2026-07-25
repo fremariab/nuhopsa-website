@@ -3216,3 +3216,151 @@ z/* replace your existing milestone styles with these */
   text-align: center;
   gap: 1.25rem;
 }
+/* ── Contact Page ── */
+.contact-wrap {
+  padding-block: 4rem 6rem;
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact-inner {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.contact-form-col {
+  width: 100%;
+}
+
+/* Right col */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: sticky;
+  top: 96px;
+}
+
+.contact-side-heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-burgundy-deeper);
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Contact info list */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background-color: white;
+  border-radius: 12px;
+  border: 0.5px solid rgba(109, 40, 29, 0.07);
+  text-decoration: none;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.contact-info-item:hover {
+  border-color: var(--color-burgundy);
+  box-shadow: 0 4px 16px rgba(109, 40, 29, 0.08);
+}
+
+.contact-info-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.contact-info-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-body);
+  opacity: 0.5;
+  margin-bottom: 2px;
+}
+
+.contact-info-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-burgundy);
+}
+
+/* FAQ accordion */
+.contact-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 0.5px solid rgba(109, 40, 29, 0.08);
+}
+
+.contact-faq-item {
+  border-bottom: 0.5px solid var(--color-cream);
+  background-color: white;
+}
+
+.contact-faq-item:last-child {
+  border-bottom: none;
+}
+
+.contact-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-burgundy-deeper);
+  transition: background-color 0.2s ease;
+}
+
+.contact-faq-q:hover {
+  background-color: var(--color-cream-warm);
+}
+
+.contact-faq-icon {
+  font-size: 1.25rem;
+  color: var(--color-burgundy);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+
+.contact-faq-icon-open {
+  transform: rotate(45deg);
+}
+
+.contact-faq-a {
+  padding: 0 1.25rem 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  line-height: 1.75;
+  opacity: 0.8;
+}
