@@ -2754,3 +2754,200 @@ z/* replace your existing milestone styles with these */
 .gi-reset {
   font-size: 0.875rem;
 }
+
+/* ── Register Page ── */
+.reg-wrap {
+  padding-block: 4rem 6rem;
+}
+
+.reg-inner {
+  max-width: 680px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Progress steps */
+.reg-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.reg-step-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.reg-step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+  font-family: var(--font-sans);
+  z-index: 1;
+}
+
+.reg-step-active {
+  background-color: var(--color-burgundy);
+  color: var(--color-gold);
+}
+.reg-step-done {
+  background-color: var(--color-gold);
+  color: var(--color-burgundy-dark);
+}
+.reg-step-upcoming {
+  background-color: var(--color-cream);
+  color: var(--color-text-body);
+  opacity: 0.5;
+}
+
+.reg-step-label {
+  font-size: 0.72rem;
+  color: var(--color-text-body);
+  opacity: 0.5;
+  position: absolute;
+  top: 44px;
+  left: 0;
+  white-space: nowrap;
+}
+
+.reg-step-label-active {
+  opacity: 1;
+  color: var(--color-burgundy);
+  font-weight: 500;
+}
+
+/* Connecting line */
+.reg-step-line {
+  flex: 1;
+  height: 1.5px;
+  background-color: var(--color-cream);
+  margin-inline: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.reg-step-line-done {
+  background-color: var(--color-gold);
+}
+
+/* Form card */
+.reg-card {
+  background-color: white;
+  border-radius: 20px;
+  border: 0.5px solid rgba(109, 40, 29, 0.07);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.reg-step-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.reg-step-heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-burgundy);
+}
+
+.reg-step-sub {
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  opacity: 0.7;
+  margin-top: -0.5rem;
+}
+
+/* Checkboxes */
+.reg-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.reg-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  cursor: pointer;
+}
+
+.reg-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-burgundy);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.reg-newsletter {
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--color-cream);
+}
+
+/* Nav buttons */
+.reg-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 0.5px solid var(--color-cream);
+}
+
+.reg-next {
+  margin-left: auto;
+}
+
+/* Success */
+.reg-success-wrap {
+  padding-block: 6rem;
+}
+
+.reg-success {
+  max-width: 480px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.reg-success-heading {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-burgundy);
+}
+
+
+.reg-success-msg {
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  line-height: 1.75;
+}
+
+.reg-success-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
