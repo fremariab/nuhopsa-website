@@ -2937,7 +2937,6 @@ z/* replace your existing milestone styles with these */
   color: var(--color-burgundy);
 }
 
-
 .reg-success-msg {
   font-size: 0.95rem;
   color: var(--color-text-body);
@@ -2950,4 +2949,270 @@ z/* replace your existing milestone styles with these */
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 0.5rem;
+}
+/* ── Donate Page ── */
+.donate-wrap {
+  padding-block: 4rem 6rem;
+}
+
+.donate-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .donate-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Left col */
+.donate-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.donate-side-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.5vw, 1.875rem);
+  font-weight: 700;
+  color: var(--color-burgundy-deeper);
+  line-height: 1.25;
+  margin-top: 0.5rem;
+}
+
+/* Fund cards */
+.donate-funds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.donate-fund-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  text-align: left;
+  background-color: white;
+  border: 1.5px solid rgba(109, 40, 29, 0.08);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.donate-fund-card:hover {
+  border-color: var(--color-burgundy);
+}
+
+.donate-fund-active {
+  border-color: var(--color-burgundy);
+  background-color: var(--color-cream-warm);
+  box-shadow: 0 0 0 3px rgba(109, 40, 29, 0.07);
+}
+
+.donate-fund-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.donate-fund-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-burgundy);
+  margin-bottom: 3px;
+}
+
+.donate-fund-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* Impact */
+.donate-impact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.donate-impact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 0.5px solid rgba(109, 40, 29, 0.08);
+}
+
+.donate-impact-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  background-color: white;
+  border-bottom: 0.5px solid var(--color-cream);
+}
+
+.donate-impact-item:last-child {
+  border-bottom: none;
+}
+
+.donate-impact-amount {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-burgundy);
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.donate-impact-text {
+  font-size: 0.825rem;
+  color: var(--color-text-body);
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+/* Right col — form */
+.donate-right {
+  position: sticky;
+  top: 96px;
+}
+
+.donate-form-card {
+  background-color: white;
+  border-radius: 20px;
+  border: 0.5px solid rgba(109, 40, 29, 0.07);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.donate-form-heading {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-burgundy-deeper);
+}
+
+.donate-form-fund {
+  color: var(--color-burgundy);
+}
+
+.donate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Preset buttons */
+.donate-presets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.donate-preset {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-burgundy);
+  background-color: var(--color-cream-warm);
+  border: 1.5px solid rgba(109, 40, 29, 0.15);
+  border-radius: 10px;
+  padding: 0.6rem;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.donate-preset:hover {
+  border-color: var(--color-burgundy);
+  background-color: var(--color-cream);
+}
+
+.donate-preset-active {
+  background-color: var(--color-burgundy);
+  color: var(--color-gold);
+  border-color: var(--color-burgundy);
+}
+
+/* Custom amount */
+.donate-custom-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.donate-currency {
+  position: absolute;
+  left: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.donate-custom-input {
+  padding-left: 3.5rem;
+}
+
+.donate-email-note {
+  font-size: 0.75rem;
+  color: var(--color-text-body);
+  opacity: 0.5;
+  margin-top: 2px;
+}
+
+.donate-error {
+  font-size: 0.85rem;
+  color: #c0392b;
+  background-color: #fdf2f2;
+  border: 1px solid #f5c6c6;
+  border-radius: 8px;
+  padding: 0.6rem 0.875rem;
+}
+
+.donate-submit {
+  width: 100%;
+  text-align: center;
+  padding-block: 1rem;
+  font-size: 1rem;
+}
+
+.donate-secure {
+  font-size: 0.75rem;
+  color: var(--color-text-body);
+  opacity: 0.45;
+  text-align: center;
+}
+
+/* Success */
+.donate-success-wrap {
+  padding-block: 6rem;
+}
+.donate-success {
+  max-width: 480px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
 }
