@@ -2268,7 +2268,9 @@ z/* replace your existing milestone styles with these */
   cursor: pointer;
   padding: 0.4rem 1rem;
   border-radius: 9999px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .news-tab:hover {
@@ -2288,19 +2290,23 @@ z/* replace your existing milestone styles with these */
   grid-template-columns: 1fr;
   border-radius: 20px;
   overflow: hidden;
-  border: 0.5px solid rgba(109,40,29,0.07);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 0.5px solid rgba(109, 40, 29, 0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   text-decoration: none;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
   background-color: white;
 }
 
 @media (min-width: 768px) {
-  .news-featured { grid-template-columns: 1fr 1fr; }
+  .news-featured {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .news-featured:hover {
-  box-shadow: 0 8px 32px rgba(109,40,29,0.12);
+  box-shadow: 0 8px 32px rgba(109, 40, 29, 0.12);
   transform: translateY(-2px);
 }
 
@@ -2403,7 +2409,9 @@ z/* replace your existing milestone styles with these */
   padding-bottom: 2px;
   transition: opacity 0.2s ease;
 }
-.post-back-link:hover { opacity: 0.7; }
+.post-back-link:hover {
+  opacity: 0.7;
+}
 
 /* ── Gallery Page ── */
 .gallery-page-body {
@@ -2438,12 +2446,14 @@ z/* replace your existing milestone styles with these */
   overflow: hidden;
   border: none;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .gallery-item:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 32px rgba(26,14,12,0.2);
+  box-shadow: 0 8px 32px rgba(26, 14, 12, 0.2);
 }
 
 /* Span variants for visual rhythm */
@@ -2459,7 +2469,11 @@ z/* replace your existing milestone styles with these */
 .gallery-item-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(26,14,12,0.75) 0%, transparent 60%);
+  background: linear-gradient(
+    to top,
+    rgba(26, 14, 12, 0.75) 0%,
+    transparent 60%
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -2490,7 +2504,7 @@ z/* replace your existing milestone styles with these */
 .lightbox-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(26,14,12,0.92);
+  background-color: rgba(26, 14, 12, 0.92);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -2506,7 +2520,7 @@ z/* replace your existing milestone styles with these */
   width: 100%;
   max-width: 800px;
   cursor: default;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
 }
 
 .lightbox-img {
@@ -2544,7 +2558,7 @@ z/* replace your existing milestone styles with these */
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid rgba(109,40,29,0.2);
+  border: 1.5px solid rgba(109, 40, 29, 0.2);
   background: none;
   cursor: pointer;
   font-size: 0.875rem;
@@ -2553,10 +2567,190 @@ z/* replace your existing milestone styles with these */
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .lightbox-close:hover {
   background-color: var(--color-burgundy);
   color: var(--color-gold);
+}
+
+/* ── Get Involved Page ── */
+.gi-section {
+  padding-block: 5rem;
+  scroll-margin-top: 72px; /* offset for sticky navbar */
+}
+
+.gi-section-light {
+  background-color: var(--color-cream-warm);
+}
+.gi-section-dark {
+  background-color: var(--color-burgundy);
+}
+
+.gi-section-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .gi-section-inner {
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+}
+
+/* Section header */
+.gi-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: sticky;
+  top: 96px;
+}
+
+.gi-section-icon {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.gi-section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--color-burgundy-deeper);
+  line-height: 1.2;
+}
+
+.gi-heading-dark {
+  color: var(--color-cream-warm);
+}
+
+.gi-section-desc {
+  font-size: 0.925rem;
+  color: var(--color-text-body);
+  line-height: 1.8;
+  max-width: 38ch;
+}
+
+.gi-desc-dark {
+  color: var(--color-cream);
+  opacity: 0.8;
+}
+
+.gi-eyebrow-dark {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
+}
+
+/* Form */
+.gi-form-wrap {
+  background-color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 0.5px solid rgba(109, 40, 29, 0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.gi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.gi-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .gi-form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.gi-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.gi-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+  letter-spacing: 0.01em;
+}
+
+.gi-input {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text-body);
+  background-color: var(--color-cream-warm);
+  border: 1px solid rgba(109, 40, 29, 0.15);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.gi-input:focus {
+  border-color: var(--color-burgundy);
+  box-shadow: 0 0 0 3px rgba(109, 40, 29, 0.08);
+}
+
+.gi-select {
+  cursor: pointer;
+}
+
+.gi-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.gi-submit {
+  width: fit-content;
+  margin-top: 0.5rem;
+}
+
+/* Success */
+.gi-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2.5rem 1rem;
+}
+
+.gi-success-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  color: var(--color-burgundy-dark);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gi-success-msg {
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  line-height: 1.7;
+  max-width: 36ch;
+}
+
+.gi-reset {
+  font-size: 0.875rem;
 }
