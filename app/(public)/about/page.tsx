@@ -17,7 +17,7 @@ const executives = [
 ];
 
 const milestones = [
-  { year: "1945", event: "Holy Child School founded" },
+  { year: "1946", event: "Holy Child School founded" },
   { year: "1960", event: "First alumni association formed" },
   { year: "1985", event: "Holy Child College established" },
   { year: "2000", event: "NUHOPSA formally constituted" },
@@ -91,7 +91,7 @@ export default function AboutPage() {
               Eight Decades of Holy Child Spirit
             </h2>
             <p className="story-body">
-              Holy Child School was founded in 1945 by the Society of the Holy
+              Holy Child School was founded in 1946 by the Society of the Holy
               Child Jesus, with a mission to provide girls with an education
               rooted in faith, excellence, and service. Over eight decades, it
               has grown into one of Ghana's most respected institutions.

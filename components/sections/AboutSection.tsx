@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const stats = [
-  { num: "80+",  lbl: "Years of excellence" },
-  { num: "5k+",  lbl: "Alumni worldwide" },
-  { num: "1945", lbl: "Year founded" },
-  { num: "2",    lbl: "Campuses" },
+  { num: "80",  lbl: "Years of excellence" },
+  { num: "70k+",  lbl: "Alumni worldwide" },
+  { num: "1946", lbl: "Year established" },
+  { num: "1",    lbl: "Campus" },
 ];
 
 export default function AboutSection() {
@@ -18,18 +18,20 @@ export default function AboutSection() {
 
             {/* Main image placeholder */}
             <div className="about-image-placeholder">
-              <span className="about-placeholder-text">School photo</span>
+              <img src="/images/img1.jpeg" alt="picture" />
+              {/* <span className="about-placeholder-text">School photo</span> */}
             </div>
 
             {/* Secondary image — overlaps bottom right */}
             <div className="about-image-secondary">
-              <span className="about-placeholder-text">Alumni photo</span>
+              <img src="/images/img3.png" alt="picture" />
+              {/* <span className="about-placeholder-text">Alumni photo</span> */}
             </div>
 
             {/* Overlap stat card */}
             <div className="about-overlap-card">
-              <span className="about-overlap-num">80</span>
-              <span className="about-overlap-lbl">Years of Holy Child</span>
+              <span className="about-overlap-num">FACTA</span>
+              <span className="about-overlap-lbl">NON VERBA</span>
             </div>
 
           </div>
@@ -37,8 +39,6 @@ export default function AboutSection() {
 
         {/* Right — text col */}
         <div className="about-text-col">
-          <span className="section-eyebrow">Know about us</span>
-
           <h2 className="about-heading">
             A Global Network of Holy Child Alumni
           </h2>
@@ -51,7 +51,7 @@ export default function AboutSection() {
           </p>
 
           <p className="about-body">
-            From fundraising and scholarships to reunions and volunteering,
+            From fundraising to reunions and volunteering,
             NUHOPSA exists to ensure that the Holy Child spirit lives on long
             after graduation.
           </p>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Lexend, Cormorant_Garamond } from 'next/font/google';
+import { Lexend, Lexend_Deca} from 'next/font/google';
 import './globals.css';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
@@ -11,10 +11,10 @@ const lexend = Lexend({
   display: 'swap',
 });
 
-const cormorant = Cormorant_Garamond({
+const cormorant = Lexend_Deca({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
-  style: ['normal', 'italic'],
+  style: ['normal'],
   variable: '--font-cormorant',
   display: 'swap',
 });

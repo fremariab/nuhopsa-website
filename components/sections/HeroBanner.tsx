@@ -7,7 +7,6 @@ export default function HeroBanner() {
       <div className='hero-inner'>
         {/* Left — text content */}
         <div className='hero-content'>
-          <span className='hero-eyebrow'>80th Anniversary Celebrations</span>
 
           <h1 className='hero-heading'>
             Rooted in Legacy,
@@ -29,24 +28,7 @@ export default function HeroBanner() {
               80th Anniversary →
             </Link>
           </div>
-
-          {/* Stat strip */}
-          <div className='hero-stats'>
-            <div className='hero-stat'>
-              <span className='hero-stat-num'>80+</span>
-              <span className='hero-stat-lbl'>Years of excellence</span>
-            </div>
-            <div className='hero-stat-divider' />
-            <div className='hero-stat'>
-              <span className='hero-stat-num'>5k+</span>
-              <span className='hero-stat-lbl'>Alumni worldwide</span>
-            </div>
-            <div className='hero-stat-divider' />
-            <div className='hero-stat'>
-              <span className='hero-stat-num'>1945</span>
-              <span className='hero-stat-lbl'>Founded</span>
-            </div>
-          </div>
+          
         </div>
 
         {/* Right — image */}
@@ -54,7 +36,8 @@ export default function HeroBanner() {
           <div className='hero-image-wrap'>
             {/* Swap src here when real photo is ready */}
             <div className='hero-image-placeholder'>
-              <span className='hero-placeholder-text'>Photo coming soon</span>
+              <img src="/images/img2.png" alt="picture" />
+              {/* <span className='hero-placeholder-text'>Photo coming soon</span> */}
             </div>
 
             {/* Floating anniversary badge — overlaps image edge */}
@@ -65,7 +48,7 @@ export default function HeroBanner() {
 
             {/* Floating stat card — bottom left overlap */}
             <div className='hero-float-card'>
-              <span className='hero-float-num'>1945</span>
+              <span className='hero-float-num'>1946</span>
               <span className='hero-float-lbl'>Est. Holy Child</span>
             </div>
           </div>

@@ -100,7 +100,7 @@ export default function AnniversaryPage() {
           <div className="anniv-hero-badge">
             <span className="anniv-badge-num">80</span>
             <span className="anniv-badge-top">Years</span>
-            <span className="anniv-badge-bot">1945 – 2025</span>
+            <span className="anniv-badge-bot">1946 – 2025</span>
           </div>
         </div>
       </section>
