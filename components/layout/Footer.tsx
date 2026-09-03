@@ -1,4 +1,12 @@
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+  faLinkedinIn,
+} from '@fortawesome/free-brands-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const quickLinks = [
   { label: 'About', href: '/about' },
@@ -10,10 +18,10 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { label: 'Facebook', href: 'https://facebook.com' },
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'Twitter/X', href: 'https://x.com' },
-  { label: 'LinkedIn', href: 'https://linkedin.com' },
+  { label: 'Facebook', href: 'https://facebook.com', icon: faFacebookF },
+  { label: 'Instagram', href: 'https://instagram.com', icon: faInstagram },
+  { label: 'Twitter/X', href: 'https://x.com', icon: faTwitter },
+  { label: 'LinkedIn', href: 'https://linkedin.com', icon: faLinkedinIn },
 ];
 
 export default function Footer() {
@@ -43,7 +51,7 @@ export default function Footer() {
                   className='footer-social-btn'
                   aria-label={s.label}
                 >
-                  {s.label.charAt(0)}
+                  <FontAwesomeIcon icon={s.icon as IconProp} />
                 </a>
               ))}
             </div>
@@ -72,21 +80,10 @@ export default function Footer() {
                   href='mailto:website4nuhopsa@gmail.com'
                   className='footer-link'
                 >
-                  website4nuhopsa@gmail.com
+                  info@nuhopsa.com
                 </a>
               </li>
             </ul>
-
-            {/* 80th anniversary callout */}
-            <div className='footer-anniv-card'>
-              <span className='footer-anniv-eyebrow'>Now celebrating</span>
-              <p className='footer-anniv-text'>
-                80th Anniversary of Holy Child School & College
-              </p>
-              <Link href='/anniversary' className='footer-anniv-link'>
-                Learn more →
-              </Link>
-            </div>
           </div>
         </div>
 

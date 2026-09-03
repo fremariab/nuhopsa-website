@@ -7,7 +7,6 @@ export default function HeroBanner() {
       <div className='hero-inner'>
         {/* Left — text content */}
         <div className='hero-content'>
-
           <h1 className='hero-heading'>
             Rooted in Legacy,
             <br />
@@ -28,22 +27,19 @@ export default function HeroBanner() {
               80th Anniversary →
             </Link>
           </div>
-          
         </div>
 
         {/* Right — image */}
         <div className='hero-image-col'>
           <div className='hero-image-wrap'>
-            {/* Swap src here when real photo is ready */}
-            <div className='hero-image-placeholder'>
-              <img src="/images/img2.png" alt="picture" />
-              {/* <span className='hero-placeholder-text'>Photo coming soon</span> */}
-            </div>
-
-            {/* Floating anniversary badge — overlaps image edge */}
-            <div className='hero-badge'>
-              <span className='hero-badge-num'>80</span>
-              <span className='hero-badge-lbl'>Years</span>
+            <div className='hero-image-real'>
+              <Image
+                src='/images/img2.png'
+                alt='Holy Child alumni'
+                fill
+                className='hero-img'
+                priority
+              />
             </div>
 
             {/* Floating stat card — bottom left overlap */}
