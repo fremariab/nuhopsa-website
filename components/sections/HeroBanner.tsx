@@ -7,23 +7,29 @@ export default function HeroBanner() {
       <div className='hero-inner'>
         {/* Left — text content */}
         <div className='hero-content'>
-          <h1 className='hero-heading'>
+          <h1 className='hero-heading hero-entrance hero-entrance-heading'>
             Rooted in Legacy,
             <br />
             Connected Forever
           </h1>
 
-          <p className='hero-sub'>
+          <p className='hero-sub hero-entrance hero-entrance-sub'>
             Celebrating 80 years of Holy Child excellence. Join thousands of
             alumni across the globe — reconnect, give back, and be part of
             something larger than yourself.
           </p>
 
           <div className='hero-actions'>
-            <Link href='/register' className='hero-btn-primary'>
+            <Link
+              href='/register'
+              className='hero-btn-primary hero-entrance hero-entrance-primary'
+            >
               Register as alumni
             </Link>
-            <Link href='/anniversary' className='hero-btn-outline'>
+            <Link
+              href='/anniversary'
+              className='hero-btn-outline hero-entrance hero-entrance-secondary'
+            >
               80th Anniversary →
             </Link>
           </div>
@@ -40,6 +46,16 @@ export default function HeroBanner() {
                 className='hero-img'
                 priority
               />
+            </div>
+
+            <div className='hero-badge-stack' aria-label='80 years of Holy Child'>
+              <div className='hero-badge hero-badge-back' aria-hidden='true'>
+                <span>ALUMNI</span>
+              </div>
+              <div className='hero-badge hero-badge-front'>
+                <span className='hero-badge-num'>80</span>
+                <span className='hero-badge-lbl'>Years</span>
+              </div>
             </div>
 
             {/* Floating stat card — bottom left overlap */}

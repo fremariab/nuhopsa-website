@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCamera,
+  faChampagneGlasses,
+  faChurch,
+  faGraduationCap,
+  faHandshake,
+  faPalette,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
   title: "80th Anniversary",
@@ -9,37 +18,37 @@ export const metadata: Metadata = {
 
 const highlights = [
   {
-    icon: "🎉",
+    icon: faChampagneGlasses,
     title: "Grand Reunion Dinner",
     description:
       "Alumni from across the globe gathered for an unforgettable evening of celebration, laughter, and shared memories.",
   },
   {
-    icon: "🎓",
+    icon: faGraduationCap,
     title: "Scholarship Presentations",
     description:
       "The 80th Anniversary Scholarship Fund awarded grants to deserving Holy Child students, investing in the next generation.",
   },
   {
-    icon: "🎨",
+    icon: faPalette,
     title: "Cultural Showcase",
     description:
       "A vibrant display of talent, tradition, and Holy Child spirit — performed by current students and alumni alike.",
   },
   {
-    icon: "⛪",
+    icon: faChurch,
     title: "Thanksgiving Service",
     description:
       "A moving service of gratitude for 80 years of faith, excellence, and service at Holy Child.",
   },
   {
-    icon: "📸",
+    icon: faCamera,
     title: "Alumni Exhibition",
     description:
       "A curated exhibition of archival photos, yearbooks, and memorabilia spanning eight decades of Holy Child history.",
   },
   {
-    icon: "🤝",
+    icon: faHandshake,
     title: "Community Outreach",
     description:
       "Alumni volunteers gave back to the local community in the spirit of service that defines the Holy Child ethos.",
@@ -137,7 +146,7 @@ export default function AnniversaryPage() {
           <div className="highlights-grid">
             {highlights.map((h) => (
               <div key={h.title} className="highlight-card">
-                <span className="highlight-icon">{h.icon}</span>
+                <span className="highlight-icon"><FontAwesomeIcon icon={h.icon} /></span>
                 <h3 className="highlight-title">{h.title}</h3>
                 <p className="highlight-desc">{h.description}</p>
               </div>

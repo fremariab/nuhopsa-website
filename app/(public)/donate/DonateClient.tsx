@@ -1,27 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGraduationCap,
+  faHeart,
+  faLock,
+  faSchool,
+  faGlobe,
+} from "@fortawesome/free-solid-svg-icons";
 
 const presets = [50, 100, 250, 500, 1000];
 
 const funds = [
   {
     id: "scholarship",
-    icon: "🎓",
+    icon: faGraduationCap,
     title: "Scholarship Fund",
     description:
       "Directly fund bursaries for deserving Holy Child students who need financial support to complete their education.",
   },
   {
     id: "general",
-    icon: "🏫",
+    icon: faSchool,
     title: "General NUHOPSA Fund",
     description:
       "Support day-to-day alumni operations, events, communications, and community initiatives.",
   },
   {
     id: "legacy",
-    icon: "🌍",
+    icon: faGlobe,
     title: "Legacy & Infrastructure",
     description:
       "Contribute to long-term projects that improve Holy Child School and College facilities for future generations.",
@@ -103,7 +111,7 @@ export default function DonateClient() {
             className="gi-success-icon"
             style={{ width: 64, height: 64, fontSize: "1.5rem" }}
           >
-            ❤️
+            <FontAwesomeIcon icon={faHeart} />
           </div>
           <h2 className="reg-success-heading">Thank you!</h2>
           <p className="reg-success-msg">{message}</p>
@@ -139,7 +147,7 @@ export default function DonateClient() {
                 onClick={() => setFund(f.id)}
                 className={`donate-fund-card ${fund === f.id ? "donate-fund-active" : ""}`}
               >
-                <span className="donate-fund-icon">{f.icon}</span>
+                <span className="donate-fund-icon"><FontAwesomeIcon icon={f.icon} /></span>
                 <div>
                   <div className="donate-fund-title">{f.title}</div>
                   <div className="donate-fund-desc">{f.description}</div>
@@ -280,7 +288,7 @@ export default function DonateClient() {
               </button>
 
               <p className="donate-secure">
-                🔒 Payments are processed securely via Paystack
+                <FontAwesomeIcon icon={faLock} /> Payments are processed securely via Paystack
               </p>
 
             </form>

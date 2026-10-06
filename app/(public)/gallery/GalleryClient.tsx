@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const categories = ["All", "80th Anniversary", "Events", "Alumni", "School Archive"];
 
@@ -107,7 +109,7 @@ export default function GalleryClient() {
                 onClick={() => setLightbox(null)}
                 aria-label="Close"
               >
-                ✕
+                <FontAwesomeIcon icon={faXmark} />
               </button>
             </div>
           </div>

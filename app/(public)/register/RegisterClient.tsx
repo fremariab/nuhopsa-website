@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 type Step = 1 | 2 | 3;
 
@@ -111,7 +113,7 @@ export default function RegisterClient() {
             className='gi-success-icon'
             style={{ width: 64, height: 64, fontSize: '1.5rem' }}
           >
-            ✓
+            <FontAwesomeIcon icon={faCheck} />
           </div>
           <h2 className='reg-success-heading'>Welcome to NUHOPSA!</h2>
           <p className='reg-success-msg'>
@@ -147,7 +149,7 @@ export default function RegisterClient() {
                       : 'reg-step-upcoming'
                 }`}
               >
-                {step > s.num ? '✓' : s.num}
+                {step > s.num ? <FontAwesomeIcon icon={faCheck} /> : s.num}
               </div>
               <span
                 className={`reg-step-label ${step === s.num ? 'reg-step-label-active' : ''}`}

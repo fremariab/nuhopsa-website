@@ -1,6 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCheck,
+  faGraduationCap,
+  faHandHoldingHeart,
+  faHandshake,
+} from '@fortawesome/free-solid-svg-icons';
 
 type FormState = Record<string, string>;
 type Status = 'idle' | 'loading' | 'success' | 'error';
@@ -378,7 +385,7 @@ function FormSuccess({
 }) {
   return (
     <div className='gi-success'>
-      <span className='gi-success-icon'>✓</span>
+      <span className='gi-success-icon'><FontAwesomeIcon icon={faCheck} /></span>
       <p className='gi-success-msg'>{message}</p>
       <button className='btn-outline gi-reset' onClick={onReset}>
         Submit another response
@@ -398,7 +405,7 @@ function InvolvedSection({
   dark = false,
 }: {
   id: string;
-  icon: string;
+  icon: typeof faHandshake;
   eyebrow: string;
   heading: string;
   description: string;
@@ -414,7 +421,7 @@ function InvolvedSection({
     >
       <div className='section-container gi-section-inner'>
         <div className='gi-section-header'>
-          <span className='gi-section-icon'>{icon}</span>
+          <span className='gi-section-icon'><FontAwesomeIcon icon={icon} /></span>
           <span className={`section-eyebrow ${dark ? 'gi-eyebrow-dark' : ''}`}>
             {eyebrow}
           </span>
@@ -437,7 +444,7 @@ export default function GetInvolvedClient() {
     <>
       <InvolvedSection
         id='volunteer'
-        icon='🤝'
+        icon={faHandshake}
         eyebrow='Give your time'
         heading='Volunteer with NUHOPSA'
         description='Help us plan events, run outreach programmes, and support the NUHOPSA community. Every hour you give strengthens our network.'
@@ -447,7 +454,7 @@ export default function GetInvolvedClient() {
 
       <InvolvedSection
         id='mentor'
-        icon='🎓'
+        icon={faGraduationCap}
         eyebrow='Share your journey'
         heading='Become a Mentor'
         description='Be the guide you wish you had. Share your professional experience with current Holy Child students and help shape the next generation.'
@@ -458,7 +465,7 @@ export default function GetInvolvedClient() {
 
       <InvolvedSection
         id='sponsor'
-        icon='🤲'
+        icon={faHandHoldingHeart}
         eyebrow='Invest in legacy'
         heading='Sponsor NUHOPSA'
         description='Support our events, scholarship fund, and alumni initiatives. Sponsorship puts your brand at the heart of a proud and engaged community.'

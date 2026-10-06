@@ -1,6 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faEnvelope,
+  faPlus,
+  faCheck,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -16,25 +27,25 @@ const topics = [
 
 const contactInfo = [
   {
-    icon: '✉️',
+    icon: faEnvelope,
     label: 'Email',
     value: 'website4nuhopsa@gmail.com',
     href: 'mailto:website4nuhopsa@gmail.com',
   },
   {
-    icon: '📘',
+    icon: faFacebook,
     label: 'Facebook',
     value: 'NUHOPSA',
     href: 'https://facebook.com',
   },
   {
-    icon: '📸',
+    icon: faInstagram,
     label: 'Instagram',
     value: '@nuhopsa',
     href: 'https://instagram.com',
   },
   {
-    icon: '🐦',
+    icon: faTwitter,
     label: 'Twitter / X',
     value: '@nuhopsa',
     href: 'https://x.com',
@@ -95,7 +106,7 @@ export default function ContactClient() {
           <div className='donate-form-card'>
             {status === 'success' ? (
               <div className='gi-success'>
-                <div className='gi-success-icon'>✓</div>
+                <div className='gi-success-icon'><FontAwesomeIcon icon={faCheck} /></div>
                 <p className='gi-success-msg'>{message}</p>
                 <button
                   className='btn-outline'
@@ -210,7 +221,9 @@ export default function ContactClient() {
                   rel='noopener noreferrer'
                   className='contact-info-item'
                 >
-                  <span className='contact-info-icon'>{item.icon}</span>
+                  <span className='contact-info-icon'>
+                    <FontAwesomeIcon icon={item.icon} />
+                  </span>
                   <div>
                     <div className='contact-info-label'>{item.label}</div>
                     <div className='contact-info-value'>{item.value}</div>
@@ -236,7 +249,7 @@ export default function ContactClient() {
                     <span
                       className={`contact-faq-icon ${openFaq === i ? 'contact-faq-icon-open' : ''}`}
                     >
-                      ﹢
+                      <FontAwesomeIcon icon={faPlus} />
                     </span>
                   </button>
                   {openFaq === i && (
