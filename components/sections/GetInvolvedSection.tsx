@@ -1,9 +1,10 @@
 import Link from "next/link";
+import SiteIcon from "@/components/ui/SiteIcon";
 
 const ways = [
   {
     id: 1,
-    icon: "🤝",
+    icon: "handshake",
     title: "Volunteer",
     description:
       "Give your time and skills to support NUHOPSA events, outreach programmes, and the 80th Anniversary celebrations.",
@@ -12,7 +13,7 @@ const ways = [
   },
   {
     id: 2,
-    icon: "🎓",
+    icon: "graduation",
     title: "Mentor",
     description:
       "Share your professional journey with current Holy Child students. Be the guide you wish you had.",
@@ -21,14 +22,14 @@ const ways = [
   },
   {
     id: 3,
-    icon: "🤲",
+    icon: "handHoldingHeart",
     title: "Sponsor",
     description:
       "Support the 80th Anniversary celebrations or our scholarship fund. Your contribution builds lasting legacy.",
     cta: "Explore sponsorship",
     href: "/get-involved#sponsor",
   },
-];
+] as const;
 
 export default function GetInvolvedSection() {
   return (
@@ -37,7 +38,6 @@ export default function GetInvolvedSection() {
 
         {/* Header */}
         <div className="involved-header">
-          <span className="section-eyebrow">Be part of something bigger</span>
           <h2 className="involved-heading">Get Involved</h2>
           <p className="involved-sub">
             There are many ways to show up for your alma mater and the NUHOPSA
@@ -49,7 +49,9 @@ export default function GetInvolvedSection() {
         <div className="involved-grid">
           {ways.map((way) => (
             <div key={way.id} className="involved-card">
-              <div className="involved-icon">{way.icon}</div>
+              <div className="involved-icon">
+                <SiteIcon name={way.icon} />
+              </div>
               <h3 className="involved-title">{way.title}</h3>
               <p className="involved-desc">{way.description}</p>
               <Link href={way.href} className="involved-cta">

@@ -12,7 +12,6 @@ export default function DonatePage() {
     <main>
       <section className="page-hero">
         <div className="section-container page-hero-inner">
-          <span className="section-eyebrow">Make a difference</span>
           <h1 className="page-hero-heading">Support NUHOPSA</h1>
           <p className="page-hero-sub">
             Every contribution — big or small — funds scholarships, events,

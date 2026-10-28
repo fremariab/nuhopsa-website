@@ -6,9 +6,8 @@ export default function DonateStrip() {
       <div className="section-container donate-strip-inner">
 
         <div className="donate-strip-text">
-          <span className="donate-strip-eyebrow">Make a difference today</span>
           <h2 className="donate-strip-heading">
-            Support Holy Child's Next 80 Years
+            Support Holy Child&apos;s Next 80 Years
           </h2>
           <p className="donate-strip-sub">
             Every contribution — big or small — funds scholarships, events, and

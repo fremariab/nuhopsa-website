@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SiteIcon from "@/components/ui/SiteIcon";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -16,30 +17,30 @@ const topics = [
 
 const contactInfo = [
   {
-    icon: "✉️",
+    icon: "email",
     label: "Email",
     value: "website4nuhopsa@gmail.com",
     href: "mailto:website4nuhopsa@gmail.com",
   },
   {
-    icon: "📘",
+    icon: "facebook",
     label: "Facebook",
     value: "NUHOPSA",
     href: "https://facebook.com",
   },
   {
-    icon: "📸",
+    icon: "instagram",
     label: "Instagram",
     value: "@nuhopsa",
     href: "https://instagram.com",
   },
   {
-    icon: "🐦",
+    icon: "xTwitter",
     label: "Twitter / X",
     value: "@nuhopsa",
     href: "https://x.com",
   },
-];
+ ] as const;
 
 const faqs = [
   {
@@ -177,7 +178,6 @@ export default function ContactClient() {
 
           {/* Contact details */}
           <div>
-            <span className="section-eyebrow">Reach us directly</span>
             <h2 className="contact-side-heading">Contact Information</h2>
             <div className="contact-info-list">
               {contactInfo.map((item) => (
@@ -188,7 +188,9 @@ export default function ContactClient() {
                   rel="noopener noreferrer"
                   className="contact-info-item"
                 >
-                  <span className="contact-info-icon">{item.icon}</span>
+                  <span className="contact-info-icon">
+                    <SiteIcon name={item.icon} />
+                  </span>
                   <div>
                     <div className="contact-info-label">{item.label}</div>
                     <div className="contact-info-value">{item.value}</div>
@@ -200,7 +202,6 @@ export default function ContactClient() {
 
           {/* FAQ accordion */}
           <div>
-            <span className="section-eyebrow">Quick answers</span>
             <h2 className="contact-side-heading">Frequently Asked Questions</h2>
             <div className="contact-faq-list">
               {faqs.map((faq, i) => (

@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home",             href: "/" },
   { label: "About",            href: "/about" },
   { label: "80th Anniversary", href: "/anniversary" },
+  { label: "Event Calendar",   href: "/events" },
   { label: "News",             href: "/news" },
   { label: "Gallery",          href: "/gallery" },
   { label: "Get Involved",     href: "/get-involved" },

@@ -3,6 +3,7 @@ import Link from "next/link";
 const quickLinks = [
   { label: "About",            href: "/about" },
   { label: "80th Anniversary", href: "/anniversary" },
+  { label: "Event Calendar",   href: "/events" },
   { label: "News",             href: "/news" },
   { label: "Gallery",          href: "/gallery" },
   { label: "Get Involved",     href: "/get-involved" },
@@ -77,7 +78,6 @@ export default function Footer() {
 
             {/* 80th anniversary callout */}
             <div className="footer-anniv-card">
-              <span className="footer-anniv-eyebrow">Now celebrating</span>
               <p className="footer-anniv-text">80th Anniversary of Holy Child School & College</p>
               <Link href="/anniversary" className="footer-anniv-link">
                 Learn more →

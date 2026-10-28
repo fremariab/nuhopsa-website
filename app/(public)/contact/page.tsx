@@ -12,10 +12,9 @@ export default function ContactPage() {
     <main>
       <section className="page-hero">
         <div className="section-container page-hero-inner">
-          <span className="section-eyebrow">Get in touch</span>
           <h1 className="page-hero-heading">Contact Us</h1>
           <p className="page-hero-sub">
-            Have a question, suggestion, or just want to reconnect? We'd love
+            Have a question, suggestion, or just want to reconnect? We&apos;d love
             to hear from you.
           </p>
         </div>

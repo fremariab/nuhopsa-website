@@ -37,8 +37,6 @@ export default function AboutSection() {
 
         {/* Right — text col */}
         <div className="about-text-col">
-          <span className="section-eyebrow">Know about us</span>
-
           <h2 className="about-heading">
             A Global Network of Holy Child Alumni
           </h2>

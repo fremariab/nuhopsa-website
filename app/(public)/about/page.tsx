@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteIcon from "@/components/ui/SiteIcon";
 
 export const metadata: Metadata = {
   title: "About",
@@ -34,7 +35,6 @@ export default function AboutPage() {
       {/* ── Page Hero ── */}
       <section className="page-hero">
         <div className="section-container page-hero-inner">
-          <span className="section-eyebrow">Who we are</span>
           <h1 className="page-hero-heading">
             About NUHOPSA
           </h1>
@@ -50,7 +50,7 @@ export default function AboutPage() {
         <div className="section-container mv-grid">
 
           <div className="mv-card">
-            <span className="mv-icon">🎯</span>
+            <span className="mv-icon"><SiteIcon name="bullseye" /></span>
             <h2 className="mv-title">Our Mission</h2>
             <p className="mv-text">
               To foster a strong, engaged global network of Holy Child past
@@ -61,7 +61,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mv-card mv-card-dark">
-            <span className="mv-icon">🌍</span>
+            <span className="mv-icon"><SiteIcon name="globe" /></span>
             <h2 className="mv-title mv-title-light">Our Vision</h2>
             <p className="mv-text mv-text-light">
               A thriving, connected alumni community that serves as a lifelong
@@ -70,7 +70,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mv-card">
-            <span className="mv-icon">💎</span>
+            <span className="mv-icon"><SiteIcon name="gem" /></span>
             <h2 className="mv-title">Our Values</h2>
             <p className="mv-text">
               Integrity, excellence, solidarity, and service — the cornerstones
@@ -86,7 +86,6 @@ export default function AboutPage() {
         <div className="section-container story-grid">
 
           <div className="story-text">
-            <span className="section-eyebrow">Our story</span>
             <h2 className="story-heading">
               Eight Decades of Holy Child Spirit
             </h2>
@@ -94,7 +93,7 @@ export default function AboutPage() {
               Holy Child School was founded in 1945 by the Society of the Holy
               Child Jesus, with a mission to provide girls with an education
               rooted in faith, excellence, and service. Over eight decades, it
-              has grown into one of Ghana's most respected institutions.
+              has grown into one of Ghana&apos;s most respected institutions.
             </p>
             <p className="story-body">
               NUHOPSA was formally constituted to give past students a unified
@@ -110,7 +109,6 @@ export default function AboutPage() {
 
           {/* Milestones */}
           <div className="milestones">
-            <span className="section-eyebrow">Our milestones</span>
             <div className="milestone-list">
               {milestones.map((m, i) => (
                 <div key={i} className="milestone-item">
@@ -132,7 +130,6 @@ export default function AboutPage() {
         <div className="section-container">
 
           <div className="team-header">
-            <span className="section-eyebrow">Meet the team</span>
             <h2 className="team-heading">Executive Members</h2>
             <p className="team-sub">
               The dedicated alumni who lead NUHOPSA and keep our community thriving.
@@ -163,9 +160,6 @@ export default function AboutPage() {
       <section className="about-cta">
         <div className="section-container about-cta-inner">
           <div>
-            <span className="section-eyebrow" style={{borderBottomColor: "var(--color-gold)"}}>
-              Ready to reconnect?
-            </span>
             <h2 className="about-cta-heading">Join the NUHOPSA Community</h2>
             <p className="about-cta-sub">
               Register as an alumna, volunteer, mentor, or donor — every form

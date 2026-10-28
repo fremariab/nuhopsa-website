@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function HeroBanner() {
   return (
@@ -8,8 +7,6 @@ export default function HeroBanner() {
 
         {/* Left — text content */}
         <div className="hero-content">
-          <span className="hero-eyebrow">80th Anniversary Celebrations</span>
-
           <h1 className="hero-heading">
             Rooted in Legacy,<br />
             Connected Forever

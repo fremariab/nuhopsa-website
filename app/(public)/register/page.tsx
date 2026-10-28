@@ -12,7 +12,6 @@ export default function RegisterPage() {
     <main>
       <section className="page-hero">
         <div className="section-container page-hero-inner">
-          <span className="section-eyebrow">Join the network</span>
           <h1 className="page-hero-heading">Alumni Registration</h1>
           <p className="page-hero-sub">
             Register as a NUHOPSA member and stay connected with Holy Child

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 type Step = 1 | 2 | 3;
 
@@ -96,11 +97,11 @@ export default function RegisterClient() {
           <h2 className="reg-success-heading">Welcome to NUHOPSA!</h2>
           <p className="reg-success-msg">
             Thank you, {data.firstName}. Your registration has been received.
-            We'll send a confirmation to <strong>{data.email}</strong> shortly.
+            We&apos;ll send a confirmation to <strong>{data.email}</strong> shortly.
           </p>
           <div className="reg-success-actions">
-            <a href="/" className="btn-primary">Back to home</a>
-            <a href="/get-involved" className="btn-outline">Get involved</a>
+            <Link href="/" className="btn-primary">Back to home</Link>
+            <Link href="/get-involved" className="btn-outline">Get involved</Link>
           </div>
         </div>
       </section>

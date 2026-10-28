@@ -12,7 +12,6 @@ export default function GalleryPage() {
     <main>
       <section className="page-hero">
         <div className="section-container page-hero-inner">
-          <span className="section-eyebrow">Memories</span>
           <h1 className="page-hero-heading">Gallery</h1>
           <p className="page-hero-sub">
             A visual archive of Holy Child history, NUHOPSA events, and the

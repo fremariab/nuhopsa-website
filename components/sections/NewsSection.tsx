@@ -42,7 +42,6 @@ export default function NewsSection() {
         {/* Section header */}
         <div className="news-header">
           <div>
-            <span className="section-eyebrow">Latest from NUHOPSA</span>
             <h2 className="news-heading">News & Announcements</h2>
           </div>
           <Link href="/news" className="news-view-all">

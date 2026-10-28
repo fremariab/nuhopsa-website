@@ -13,7 +13,6 @@ export default function NewsPage() {
       {/* ── Page Hero ── */}
       <section className="page-hero">
         <div className="section-container page-hero-inner">
-          <span className="section-eyebrow">Stay informed</span>
           <h1 className="page-hero-heading">News & Announcements</h1>
           <p className="page-hero-sub">
             The latest updates, alumni spotlights, and announcements from

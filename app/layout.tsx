@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Lexend, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
+import Script from "next/script";
+import Footer from '@/components/layout/Footer';
 
 const lexend = Lexend({
   subsets: ['latin'],
@@ -39,7 +41,6 @@ export const metadata: Metadata = {
   },
 };
 
-import Footer from '@/components/layout/Footer';
 
 export default function RootLayout({
   children,
@@ -52,8 +53,8 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Script src="https://js.paystack.co/v1/inline.js" strategy="afterInteractive" />
       </body>
     </html>
   );
 }
-<Script src="https://js.paystack.co/v1/inline.js" strategy="beforeInteractive" />

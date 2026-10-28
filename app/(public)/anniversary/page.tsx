@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteIcon from "@/components/ui/SiteIcon";
 
 export const metadata: Metadata = {
   title: "80th Anniversary",
@@ -9,37 +10,37 @@ export const metadata: Metadata = {
 
 const highlights = [
   {
-    icon: "🎉",
+    icon: "celebration",
     title: "Grand Reunion Dinner",
     description:
       "Alumni from across the globe gathered for an unforgettable evening of celebration, laughter, and shared memories.",
   },
   {
-    icon: "🎓",
+    icon: "graduation",
     title: "Scholarship Presentations",
     description:
       "The 80th Anniversary Scholarship Fund awarded grants to deserving Holy Child students, investing in the next generation.",
   },
   {
-    icon: "🎨",
+    icon: "masks",
     title: "Cultural Showcase",
     description:
       "A vibrant display of talent, tradition, and Holy Child spirit — performed by current students and alumni alike.",
   },
   {
-    icon: "⛪",
+    icon: "church",
     title: "Thanksgiving Service",
     description:
       "A moving service of gratitude for 80 years of faith, excellence, and service at Holy Child.",
   },
   {
-    icon: "📸",
+    icon: "camera",
     title: "Alumni Exhibition",
     description:
       "A curated exhibition of archival photos, yearbooks, and memorabilia spanning eight decades of Holy Child history.",
   },
   {
-    icon: "🤝",
+    icon: "handshake",
     title: "Community Outreach",
     description:
       "Alumni volunteers gave back to the local community in the spirit of service that defines the Holy Child ethos.",
@@ -73,9 +74,6 @@ export default function AnniversaryPage() {
       <section className="anniv-hero">
         <div className="section-container anniv-hero-inner">
           <div className="anniv-hero-content">
-            <span className="section-eyebrow" style={{ borderBottomColor: "var(--color-gold)", color: "var(--color-gold)" }}>
-              Holy Child School & College
-            </span>
             <h1 className="anniv-hero-heading">
               Celebrating<br />
               <span className="anniv-hero-num">80 Years</span><br />
@@ -126,7 +124,6 @@ export default function AnniversaryPage() {
       <section className="section-light">
         <div className="section-container">
           <div className="anniv-section-header">
-            <span className="section-eyebrow">What we celebrated</span>
             <h2 className="anniv-section-heading">Anniversary Highlights</h2>
             <p className="anniv-section-sub">
               A series of events that brought the Holy Child community together
@@ -137,7 +134,7 @@ export default function AnniversaryPage() {
           <div className="highlights-grid">
             {highlights.map((h) => (
               <div key={h.title} className="highlight-card">
-                <span className="highlight-icon">{h.icon}</span>
+                <span className="highlight-icon"><SiteIcon name={h.icon} /></span>
                 <h3 className="highlight-title">{h.title}</h3>
                 <p className="highlight-desc">{h.description}</p>
               </div>
@@ -150,7 +147,6 @@ export default function AnniversaryPage() {
       <section className="section-cream">
         <div className="section-container">
           <div className="anniv-section-header">
-            <span className="section-eyebrow">Memories</span>
             <h2 className="anniv-section-heading">Photo Highlights</h2>
           </div>
 
@@ -178,7 +174,6 @@ export default function AnniversaryPage() {
       <section className="section-light">
         <div className="section-container">
           <div className="anniv-section-header">
-            <span className="section-eyebrow">With gratitude</span>
             <h2 className="anniv-section-heading">Our Sponsors & Supporters</h2>
             <p className="anniv-section-sub">
               The 80th Anniversary celebrations would not have been possible
@@ -212,9 +207,6 @@ export default function AnniversaryPage() {
       <section className="anniv-legacy">
         <div className="section-container anniv-legacy-inner">
           <div className="anniv-legacy-text">
-            <span className="section-eyebrow" style={{ color: "var(--color-gold)", borderBottomColor: "var(--color-gold)" }}>
-              The journey continues
-            </span>
             <h2 className="anniv-legacy-heading">
               Help Us Build the Next 80 Years
             </h2>

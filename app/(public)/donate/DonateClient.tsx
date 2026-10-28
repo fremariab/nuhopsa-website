@@ -1,32 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import SiteIcon from "@/components/ui/SiteIcon";
 
 const presets = [50, 100, 250, 500, 1000];
 
 const funds = [
   {
     id: "scholarship",
-    icon: "🎓",
+    icon: "graduation",
     title: "Scholarship Fund",
     description:
       "Directly fund bursaries for deserving Holy Child students who need financial support to complete their education.",
   },
   {
     id: "general",
-    icon: "🏫",
+    icon: "school",
     title: "General NUHOPSA Fund",
     description:
       "Support day-to-day alumni operations, events, communications, and community initiatives.",
   },
   {
     id: "legacy",
-    icon: "🌍",
+    icon: "globe",
     title: "Legacy & Infrastructure",
     description:
       "Contribute to long-term projects that improve Holy Child School and College facilities for future generations.",
   },
-];
+ ] as const;
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -103,7 +105,7 @@ export default function DonateClient() {
             className="gi-success-icon"
             style={{ width: 64, height: 64, fontSize: "1.5rem" }}
           >
-            ❤️
+            <SiteIcon name="heart" />
           </div>
           <h2 className="reg-success-heading">Thank you!</h2>
           <p className="reg-success-msg">{message}</p>
@@ -111,8 +113,8 @@ export default function DonateClient() {
             A receipt has been sent to <strong>{email}</strong>.
           </p>
           <div className="reg-success-actions">
-            <a href="/" className="btn-primary">Back to home</a>
-            <a href="/get-involved" className="btn-outline">Get more involved</a>
+            <Link href="/" className="btn-primary">Back to home</Link>
+            <Link href="/get-involved" className="btn-outline">Get more involved</Link>
           </div>
         </div>
       </section>
@@ -127,7 +129,6 @@ export default function DonateClient() {
         <div className="donate-left">
 
           <div>
-            <span className="section-eyebrow">Choose a fund</span>
             <h2 className="donate-side-heading">Where would you like your donation to go?</h2>
           </div>
 
@@ -139,7 +140,7 @@ export default function DonateClient() {
                 onClick={() => setFund(f.id)}
                 className={`donate-fund-card ${fund === f.id ? "donate-fund-active" : ""}`}
               >
-                <span className="donate-fund-icon">{f.icon}</span>
+                <span className="donate-fund-icon"><SiteIcon name={f.icon} /></span>
                 <div>
                   <div className="donate-fund-title">{f.title}</div>
                   <div className="donate-fund-desc">{f.description}</div>
@@ -150,7 +151,6 @@ export default function DonateClient() {
 
           {/* Impact block */}
           <div className="donate-impact">
-            <span className="section-eyebrow">Your impact</span>
             <div className="donate-impact-list">
               {[
                 { amount: "GHS 50",   impact: "Covers a student's textbooks for a term" },
@@ -280,7 +280,7 @@ export default function DonateClient() {
               </button>
 
               <p className="donate-secure">
-                🔒 Payments are processed securely via Paystack
+                <SiteIcon name="lock" /> Payments are processed securely via Paystack
               </p>
 
             </form>

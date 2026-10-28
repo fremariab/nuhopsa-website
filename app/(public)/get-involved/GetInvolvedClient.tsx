@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SiteIcon, { type SiteIconName } from "@/components/ui/SiteIcon";
 
 type FormState = Record<string, string>;
 type Status = "idle" | "loading" | "success" | "error";
@@ -87,7 +88,7 @@ function VolunteerForm() {
         </div>
       </div>
       <div className="gi-field">
-        <label className="gi-label">Anything else you'd like us to know?</label>
+        <label className="gi-label">Anything else you&apos;d like us to know?</label>
         <textarea
           name="message"
           value={values.message} onChange={handleChange}
@@ -289,12 +290,11 @@ function FormSuccess({ message, onReset }: { message: string; onReset: () => voi
 
 /* ── Section wrapper ── */
 function InvolvedSection({
-  id, icon, eyebrow, heading, description, children,
+  id, icon, heading, description, children,
   dark = false,
 }: {
   id: string;
-  icon: string;
-  eyebrow: string;
+  icon: SiteIconName;
   heading: string;
   description: string;
   children: React.ReactNode;
@@ -307,10 +307,7 @@ function InvolvedSection({
     >
       <div className="section-container gi-section-inner">
         <div className="gi-section-header">
-          <span className="gi-section-icon">{icon}</span>
-          <span className={`section-eyebrow ${dark ? "gi-eyebrow-dark" : ""}`}>
-            {eyebrow}
-          </span>
+          <span className="gi-section-icon"><SiteIcon name={icon} /></span>
           <h2 className={`gi-section-heading ${dark ? "gi-heading-dark" : ""}`}>
             {heading}
           </h2>
@@ -330,8 +327,7 @@ export default function GetInvolvedClient() {
     <>
       <InvolvedSection
         id="volunteer"
-        icon="🤝"
-        eyebrow="Give your time"
+        icon="handshake"
         heading="Volunteer with NUHOPSA"
         description="Help us plan events, run outreach programmes, and support the NUHOPSA community. Every hour you give strengthens our network."
       >
@@ -340,8 +336,7 @@ export default function GetInvolvedClient() {
 
       <InvolvedSection
         id="mentor"
-        icon="🎓"
-        eyebrow="Share your journey"
+        icon="graduation"
         heading="Become a Mentor"
         description="Be the guide you wish you had. Share your professional experience with current Holy Child students and help shape the next generation."
         dark
@@ -351,8 +346,7 @@ export default function GetInvolvedClient() {
 
       <InvolvedSection
         id="sponsor"
-        icon="🤲"
-        eyebrow="Invest in legacy"
+        icon="handHoldingHeart"
         heading="Sponsor NUHOPSA"
         description="Support our events, scholarship fund, and alumni initiatives. Sponsorship puts your brand at the heart of a proud and engaged community."
       >
