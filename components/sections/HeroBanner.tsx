@@ -1,8 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
+import { siteImages } from "@/lib/site-images";
+import PatternLayer from "@/components/ui/PatternLayer";
+import CountUp from "@/components/ui/CountUp";
 
 export default function HeroBanner() {
   return (
     <section className="hero-root">
+      <PatternLayer tone="burgundy" from="right" />
       <div className="hero-inner">
 
         {/* Left — text content */}
@@ -30,17 +35,17 @@ export default function HeroBanner() {
           {/* Stat strip */}
           <div className="hero-stats">
             <div className="hero-stat">
-              <span className="hero-stat-num">80+</span>
+              <span className="hero-stat-num"><CountUp value="80+" /></span>
               <span className="hero-stat-lbl">Years of excellence</span>
             </div>
             <div className="hero-stat-divider" />
             <div className="hero-stat">
-              <span className="hero-stat-num">5k+</span>
+              <span className="hero-stat-num"><CountUp value="5k+" /></span>
               <span className="hero-stat-lbl">Alumni worldwide</span>
             </div>
             <div className="hero-stat-divider" />
             <div className="hero-stat">
-              <span className="hero-stat-num">1945</span>
+              <span className="hero-stat-num">1946</span>
               <span className="hero-stat-lbl">Founded</span>
             </div>
           </div>
@@ -50,9 +55,15 @@ export default function HeroBanner() {
         <div className="hero-image-col">
           <div className="hero-image-wrap">
 
-            {/* Swap src here when real photo is ready */}
-            <div className="hero-image-placeholder">
-              <span className="hero-placeholder-text">Photo coming soon</span>
+            <div className="hero-image-real">
+              <Image
+                src={siteImages[0].src}
+                alt={siteImages[0].alt}
+                fill
+                preload
+                sizes="(max-width: 1023px) 80vw, 40vw"
+                className="hero-img"
+              />
             </div>
 
             {/* Floating anniversary badge — overlaps image edge */}
@@ -63,7 +74,7 @@ export default function HeroBanner() {
 
             {/* Floating stat card — bottom left overlap */}
             <div className="hero-float-card">
-              <span className="hero-float-num">1945</span>
+              <span className="hero-float-num">1946</span>
               <span className="hero-float-lbl">Est. Holy Child</span>
             </div>
 

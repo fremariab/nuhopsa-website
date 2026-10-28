@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { siteImages } from "@/lib/site-images";
+import Reveal from "@/components/ui/Reveal";
 
 const categories = ["All", "Event", "Alumni Spotlight", "Announcement", "News"];
 
@@ -17,6 +20,7 @@ const posts = [
     readTime: "3 min read",
     featured: true,
     bg: "var(--color-burgundy)",
+    image: siteImages[4],
   },
   {
     id: 2,
@@ -29,6 +33,7 @@ const posts = [
     readTime: "5 min read",
     featured: false,
     bg: "var(--color-burgundy-dark)",
+    image: siteImages[2],
   },
   {
     id: 3,
@@ -41,6 +46,7 @@ const posts = [
     readTime: "2 min read",
     featured: false,
     bg: "var(--color-cream)",
+    image: siteImages[11],
   },
   {
     id: 4,
@@ -53,6 +59,7 @@ const posts = [
     readTime: "4 min read",
     featured: false,
     bg: "var(--color-burgundy)",
+    image: siteImages[5],
   },
   {
     id: 5,
@@ -65,6 +72,7 @@ const posts = [
     readTime: "3 min read",
     featured: false,
     bg: "var(--color-burgundy-dark)",
+    image: siteImages[12],
   },
   {
     id: 6,
@@ -77,6 +85,7 @@ const posts = [
     readTime: "3 min read",
     featured: false,
     bg: "var(--color-cream)",
+    image: siteImages[13],
   },
 ];
 
@@ -109,12 +118,19 @@ export default function NewsClient() {
 
         {/* Featured post */}
         {featured && (
+          <Reveal as="div" className="news-featured-reveal">
           <Link href={`/news/${featured.slug}`} className="news-featured">
             <div
               className="news-featured-img"
               style={{ backgroundColor: featured.bg }}
             >
-              <span className="news-card-img-placeholder">Photo</span>
+              <Image
+                src={featured.image.src}
+                alt={featured.image.alt}
+                fill
+                sizes="(max-width: 767px) 100vw, 50vw"
+                className="news-featured-image"
+              />
               <div className="news-card-img-bar" />
             </div>
             <div className="news-featured-body">
@@ -124,17 +140,18 @@ export default function NewsClient() {
               </div>
               <h2 className="news-featured-title">{featured.title}</h2>
               <p className="news-featured-excerpt">{featured.excerpt}</p>
-              <span className="news-card-link">Read more →</span>
+              <span className="news-card-link link-draw">Read more →</span>
             </div>
           </Link>
+          </Reveal>
         )}
 
         {/* Rest of posts grid */}
         {rest.length > 0 && (
           <div className="news-grid" style={{ marginTop: "2rem" }}>
-            {rest.map((post) => (
+            {rest.map((post, index) => (
+              <Reveal key={post.id} as="div" delay={index % 3} className="news-card-reveal">
               <Link
-                key={post.id}
                 href={`/news/${post.slug}`}
                 className="news-card"
                 style={{ textDecoration: "none" }}
@@ -143,7 +160,13 @@ export default function NewsClient() {
                   className="news-card-img"
                   style={{ backgroundColor: post.bg }}
                 >
-                  <span className="news-card-img-placeholder">Photo</span>
+                  <Image
+                    src={post.image.src}
+                    alt={post.image.alt}
+                    fill
+                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                    className="news-card-image"
+                  />
                   <div className="news-card-img-bar" />
                 </div>
                 <div className="news-card-body">
@@ -155,10 +178,11 @@ export default function NewsClient() {
                   <p className="news-card-excerpt">{post.excerpt}</p>
                   <div className="news-card-footer">
                     <span className="news-card-read">{post.readTime}</span>
-                    <span className="news-card-link">Read more →</span>
+                    <span className="news-card-link link-draw">Read more →</span>
                   </div>
                 </div>
               </Link>
+              </Reveal>
             ))}
           </div>
         )}

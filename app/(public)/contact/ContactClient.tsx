@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import SiteIcon from "@/components/ui/SiteIcon";
+import { contactLocation } from "@/lib/data/community";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -199,6 +200,32 @@ export default function ContactClient() {
               ))}
             </div>
           </div>
+
+          <section className="contact-location" aria-labelledby="contact-location-heading">
+            <h2 id="contact-location-heading" className="contact-side-heading">
+              Map &amp; Physical Location
+            </h2>
+            <p className="contact-location-address">
+              {contactLocation.name}<br />
+              {contactLocation.address}
+            </p>
+            <div className="contact-map-frame">
+              <iframe
+                title={`Map to ${contactLocation.name}`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(contactLocation.mapSearchQuery)}&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <a
+              className="contact-location-link"
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactLocation.mapSearchQuery)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open directions in Google Maps
+            </a>
+          </section>
 
           {/* FAQ accordion */}
           <div>

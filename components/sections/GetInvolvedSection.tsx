@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SiteIcon from "@/components/ui/SiteIcon";
+import Reveal from "@/components/ui/Reveal";
 
 const ways = [
   {
@@ -37,18 +38,18 @@ export default function GetInvolvedSection() {
       <div className="section-container">
 
         {/* Header */}
-        <div className="involved-header">
+        <Reveal as="div" className="involved-header">
           <h2 className="involved-heading">Get Involved</h2>
           <p className="involved-sub">
             There are many ways to show up for your alma mater and the NUHOPSA
             community — find the one that fits you.
           </p>
-        </div>
+        </Reveal>
 
         {/* Cards */}
         <div className="involved-grid">
           {ways.map((way) => (
-            <div key={way.id} className="involved-card">
+            <Reveal key={way.id} as="div" delay={(way.id - 1) % 3} className="involved-card">
               <div className="involved-icon">
                 <SiteIcon name={way.icon} />
               </div>
@@ -57,7 +58,7 @@ export default function GetInvolvedSection() {
               <Link href={way.href} className="involved-cta">
                 {way.cta} →
               </Link>
-            </div>
+            </Reveal>
           ))}
         </div>
 

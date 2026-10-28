@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBullseye,
+  faArrowUp,
   faCalendarDays,
   faCamera,
   faChampagneGlasses,
@@ -25,6 +26,7 @@ import {
 
 const icons = {
   bullseye: faBullseye,
+  arrowUp: faArrowUp,
   calendar: faCalendarDays,
   camera: faCamera,
   celebration: faChampagneGlasses,

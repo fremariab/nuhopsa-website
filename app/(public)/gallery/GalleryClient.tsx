@@ -1,24 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { siteImages } from "@/lib/site-images";
 
 const categories = ["All", "80th Anniversary", "Events", "Alumni", "School Archive"];
-
-// Placeholder items — replaced by Sanity/GCP images later
-const items = [
-  { id: 1,  category: "80th Anniversary", label: "Gala Dinner",           bg: "var(--color-burgundy)",        span: "gallery-item-wide" },
-  { id: 2,  category: "80th Anniversary", label: "Thanksgiving Service",  bg: "var(--color-burgundy-dark)",   span: "" },
-  { id: 3,  category: "Alumni",           label: "Class of '94 Reunion",  bg: "var(--color-cream)",           span: "" },
-  { id: 4,  category: "Events",           label: "Annual Dinner 2023",    bg: "var(--color-burgundy)",        span: "" },
-  { id: 5,  category: "80th Anniversary", label: "Cultural Showcase",     bg: "var(--color-burgundy-dark)",   span: "gallery-item-tall" },
-  { id: 6,  category: "School Archive",   label: "Holy Child 1960s",      bg: "var(--color-cream)",           span: "" },
-  { id: 7,  category: "Alumni",           label: "Alumni Summit 2019",    bg: "var(--color-burgundy)",        span: "" },
-  { id: 8,  category: "Events",           label: "Volunteering Day",      bg: "var(--color-burgundy-dark)",   span: "gallery-item-wide" },
-  { id: 9,  category: "School Archive",   label: "Founding Sisters",      bg: "var(--color-cream)",           span: "" },
-  { id: 10, category: "80th Anniversary", label: "Scholarship Ceremony",  bg: "var(--color-burgundy)",        span: "" },
-  { id: 11, category: "Alumni",           label: "Class of 2000",         bg: "var(--color-burgundy-dark)",   span: "" },
-  { id: 12, category: "Events",           label: "NUHOPSA AGM 2024",      bg: "var(--color-cream)",           span: "" },
-];
+const items = siteImages.map((image, id) => ({ ...image, id }));
 
 type GalleryItem = typeof items[number];
 
@@ -53,10 +40,17 @@ export default function GalleryClient() {
             <button
               key={item.id}
               className={`gallery-item ${item.span}`}
-              style={{ backgroundColor: item.bg }}
               onClick={() => setLightbox(item)}
               aria-label={`View ${item.label}`}
             >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                loading={item.id === 0 ? "eager" : "lazy"}
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                className="gallery-image"
+              />
               <div className="gallery-item-overlay">
                 <span className="gallery-item-label">{item.label}</span>
                 <span className="gallery-item-category">{item.category}</span>
@@ -87,13 +81,14 @@ export default function GalleryClient() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Image area */}
-            <div
-              className="lightbox-img"
-              style={{ backgroundColor: lightbox.bg }}
-            >
-              <span className="lightbox-placeholder">
-                {lightbox.label}
-              </span>
+            <div className="lightbox-img">
+              <Image
+                src={lightbox.src}
+                alt={lightbox.alt}
+                fill
+                sizes="(max-width: 800px) 100vw, 800px"
+                className="lightbox-image"
+              />
             </div>
 
             {/* Meta */}

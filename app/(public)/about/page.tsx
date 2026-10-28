@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import PatternLayer from "@/components/ui/PatternLayer";
 import Link from "next/link";
 import SiteIcon from "@/components/ui/SiteIcon";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,7 +20,7 @@ const executives = [
 ];
 
 const milestones = [
-  { year: "1945", event: "Holy Child School founded" },
+  { year: "1946", event: "Holy Child School founded" },
   { year: "1960", event: "First alumni association formed" },
   { year: "1985", event: "Holy Child College established" },
   { year: "2000", event: "NUHOPSA formally constituted" },
@@ -34,6 +36,7 @@ export default function AboutPage() {
 
       {/* ── Page Hero ── */}
       <section className="page-hero">
+        <PatternLayer tone="burgundy" from="right" />
         <div className="section-container page-hero-inner">
           <h1 className="page-hero-heading">
             About NUHOPSA
@@ -85,12 +88,12 @@ export default function AboutPage() {
       <section className="section-cream">
         <div className="section-container story-grid">
 
-          <div className="story-text">
+          <Reveal as="div" className="story-text">
             <h2 className="story-heading">
               Eight Decades of Holy Child Spirit
             </h2>
             <p className="story-body">
-              Holy Child School was founded in 1945 by the Society of the Holy
+              Holy Child School was founded in 1946 by the Society of the Holy
               Child Jesus, with a mission to provide girls with an education
               rooted in faith, excellence, and service. Over eight decades, it
               has grown into one of Ghana&apos;s most respected institutions.
@@ -105,19 +108,19 @@ export default function AboutPage() {
             <Link href="/anniversary" className="btn-primary" style={{width: "fit-content"}}>
               80th Anniversary →
             </Link>
-          </div>
+          </Reveal>
 
           {/* Milestones */}
           <div className="milestones">
             <div className="milestone-list">
               {milestones.map((m, i) => (
-                <div key={i} className="milestone-item">
+                <Reveal key={i} as="div" delay={i} className="milestone-item">
                   <div className="milestone-dot" />
                   <div className="milestone-content">
                     <span className="milestone-year">{m.year}</span>
                     <span className="milestone-event">{m.event}</span>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -129,16 +132,16 @@ export default function AboutPage() {
       <section className="section-light">
         <div className="section-container">
 
-          <div className="team-header">
+          <Reveal as="div" className="team-header">
             <h2 className="team-heading">Executive Members</h2>
             <p className="team-sub">
               The dedicated alumni who lead NUHOPSA and keep our community thriving.
             </p>
-          </div>
+          </Reveal>
 
           <div className="team-grid">
-            {executives.map((exec) => (
-              <div key={exec.name} className="team-card">
+            {executives.map((exec, index) => (
+              <Reveal key={exec.name} as="div" delay={index % 6} className="team-card">
                 <div className="team-avatar">{exec.initials}</div>
                 <div className="team-name">{exec.name}</div>
                 <div className="team-role">{exec.role}</div>
@@ -149,15 +152,40 @@ export default function AboutPage() {
                     </button>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
         </div>
       </section>
 
+      <section className="section-cream community-links-section">
+        <div className="section-container">
+          <div className="community-links-heading">
+            <h2 className="anniv-section-heading">Alumni Community</h2>
+            <p className="anniv-section-sub">
+              Find a message from the committee or learn about class
+              representatives.
+            </p>
+          </div>
+          <div className="community-links-grid">
+            <Link href="/committee-message" className="community-link-card">
+              <h3>Message from the Committee</h3>
+              <p>Read the committee&apos;s message to NUHOPSA alumni.</p>
+              <span>Read message <span aria-hidden="true">→</span></span>
+            </Link>
+            <Link href="/class-representatives" className="community-link-card">
+              <h3>Class Representatives</h3>
+              <p>View representative information for alumni classes.</p>
+              <span>View representatives <span aria-hidden="true">→</span></span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Join CTA ── */}
       <section className="about-cta">
+        <PatternLayer tone="deep" from="left" />
         <div className="section-container about-cta-inner">
           <div>
             <h2 className="about-cta-heading">Join the NUHOPSA Community</h2>

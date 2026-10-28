@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Script from "next/script";
 import Footer from '@/components/layout/Footer';
+import BackToTop from '@/components/ui/BackToTop';
 
 const lexend = Lexend({
   subsets: ['latin'],
@@ -53,6 +54,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
         <Script src="https://js.paystack.co/v1/inline.js" strategy="afterInteractive" />
       </body>
     </html>

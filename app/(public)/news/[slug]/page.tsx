@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import { siteImages } from "@/lib/site-images";
+import PatternLayer from "@/components/ui/PatternLayer";
 
 // Temporary static data — will be replaced by Sanity query
 const posts: Record<string, {
@@ -10,6 +13,7 @@ const posts: Record<string, {
   readTime: string;
   excerpt: string;
   body: string[];
+  image: (typeof siteImages)[number];
 }> = {
   "80th-anniversary-gala-dinner": {
     title: "80th Anniversary Gala Dinner",
@@ -17,6 +21,7 @@ const posts: Record<string, {
     date: "October 2025",
     readTime: "3 min read",
     excerpt: "An unforgettable evening celebrating eight decades of Holy Child excellence.",
+    image: siteImages[4],
     body: [
       "The 80th Anniversary Gala Dinner brought together Holy Child alumni from across the globe for an evening of celebration, laughter, and shared memories. The event was held in honour of eight extraordinary decades of faith, learning, and sisterhood.",
       "Guests were treated to a programme of speeches, musical performances, and a heartfelt tribute to the founding sisters of Holy Child School. Alumni from the earliest graduating classes were specially recognised for their decades of loyalty and support.",
@@ -30,6 +35,7 @@ const posts: Record<string, {
     date: "September 2025",
     readTime: "5 min read",
     excerpt: "We caught up with remarkable alumni from the class of 1994.",
+    image: siteImages[2],
     body: [
       "Thirty years on from their graduation, the class of 1994 remain a testament to the values Holy Child instilled in them. We reached out to several members to hear about their journeys since leaving school.",
       "From medicine and law to entrepreneurship and the arts, the class of '94 have carved remarkable paths — but all credit the discipline, faith, and friendship forged at Holy Child as the foundation of their success.",
@@ -59,6 +65,7 @@ export default async function PostPage({ params }: Props) {
     <main>
       {/* Hero */}
       <section className="page-hero">
+        <PatternLayer tone="burgundy" from="right" />
         <div className="section-container page-hero-inner">
           <div className="post-hero-meta">
             <span className="badge-gold">{post.category}</span>
@@ -73,11 +80,14 @@ export default async function PostPage({ params }: Props) {
       <section className="section-light">
         <div className="section-container post-body-wrap">
 
-          {/* Cover image placeholder */}
           <div className="post-cover">
-            <span style={{ opacity: 0.25, fontSize: "0.8rem", color: "white" }}>
-              Cover photo
-            </span>
+            <Image
+              src={post.image.src}
+              alt={post.image.alt}
+              fill
+              sizes="(max-width: 1152px) 90vw, 72ch"
+              className="post-cover-image"
+            />
           </div>
 
           {/* Article body */}

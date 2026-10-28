@@ -1,6 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
+import { siteImages } from "@/lib/site-images";
+import PatternLayer from "@/components/ui/PatternLayer";
+import Reveal from "@/components/ui/Reveal";
 
-// Static placeholder cards — will be replaced by Sanity data later
+// Static news cards — will be replaced by Sanity data later
 const news = [
   {
     id: 1,
@@ -11,6 +15,7 @@ const news = [
     date: "Oct 2025",
     readTime: "3 min read",
     accent: "bg-burgundy",
+    image: siteImages[1],
   },
   {
     id: 2,
@@ -21,6 +26,7 @@ const news = [
     date: "Sep 2025",
     readTime: "5 min read",
     accent: "bg-gold",
+    image: siteImages[2],
   },
   {
     id: 3,
@@ -31,33 +37,39 @@ const news = [
     date: "Aug 2025",
     readTime: "2 min read",
     accent: "bg-cream",
+    image: siteImages[11],
   },
 ];
 
 export default function NewsSection() {
   return (
     <section className="news-root section-cream">
+      <PatternLayer tone="cream" from="right" />
       <div className="section-container">
 
         {/* Section header */}
-        <div className="news-header">
+        <Reveal as="div" className="news-header">
           <div>
             <h2 className="news-heading">News & Announcements</h2>
           </div>
           <Link href="/news" className="news-view-all">
             View all →
           </Link>
-        </div>
+        </Reveal>
 
         {/* 3-card grid */}
         <div className="news-grid">
           {news.map((item) => (
-            <article key={item.id} className="news-card">
+            <Reveal key={item.id} as="article" delay={(item.id - 1) % 3} className="news-card">
 
-              {/* Image placeholder with accent color */}
               <div className={`news-card-img ${item.accent}`}>
-                <span className="news-card-img-placeholder">Photo</span>
-                {/* Gold accent bar */}
+                <Image
+                  src={item.image.src}
+                  alt={item.image.alt}
+                  fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                  className="news-card-image"
+                />
                 <div className="news-card-img-bar" />
               </div>
 
@@ -72,13 +84,13 @@ export default function NewsSection() {
 
                 <div className="news-card-footer">
                   <span className="news-card-read">{item.readTime}</span>
-                  <Link href={`/news/${item.id}`} className="news-card-link">
+                  <Link href={`/news/${item.id}`} className="news-card-link link-draw">
                     Read more →
                   </Link>
                 </div>
               </div>
 
-            </article>
+            </Reveal>
           ))}
         </div>
 

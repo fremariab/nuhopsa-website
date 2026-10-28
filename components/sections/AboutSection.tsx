@@ -1,9 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
+import { siteImages } from "@/lib/site-images";
+import Reveal from "@/components/ui/Reveal";
+import CountUp from "@/components/ui/CountUp";
 
 const stats = [
   { num: "80+",  lbl: "Years of excellence" },
   { num: "5k+",  lbl: "Alumni worldwide" },
-  { num: "1945", lbl: "Year founded" },
+  { num: "1946", lbl: "Year founded" },
   { num: "2",    lbl: "Campuses" },
 ];
 
@@ -16,14 +20,25 @@ export default function AboutSection() {
         <div className="about-image-col">
           <div className="about-image-wrap">
 
-            {/* Main image placeholder */}
-            <div className="about-image-placeholder">
-              <span className="about-placeholder-text">School photo</span>
+            <div className="about-image-frame">
+              <Image
+                src={siteImages[11].src}
+                alt={siteImages[11].alt}
+                fill
+                sizes="(max-width: 1023px) 90vw, 42vw"
+                className="about-image"
+              />
             </div>
 
             {/* Secondary image — overlaps bottom right */}
             <div className="about-image-secondary">
-              <span className="about-placeholder-text">Alumni photo</span>
+              <Image
+                src={siteImages[2].src}
+                alt={siteImages[2].alt}
+                fill
+                sizes="(max-width: 1023px) 38vw, 18vw"
+                className="about-image"
+              />
             </div>
 
             {/* Overlap stat card */}
@@ -36,7 +51,7 @@ export default function AboutSection() {
         </div>
 
         {/* Right — text col */}
-        <div className="about-text-col">
+        <Reveal as="div" className="about-text-col">
           <h2 className="about-heading">
             A Global Network of Holy Child Alumni
           </h2>
@@ -58,7 +73,9 @@ export default function AboutSection() {
           <div className="about-stats">
             {stats.map((s) => (
               <div key={s.lbl} className="about-stat-tile">
-                <span className="about-stat-num">{s.num}</span>
+                <span className="about-stat-num">
+                  {s.num === "1946" ? s.num : <CountUp value={s.num} />}
+                </span>
                 <span className="about-stat-lbl">{s.lbl}</span>
               </div>
             ))}
@@ -72,7 +89,7 @@ export default function AboutSection() {
               Join NUHOPSA
             </Link>
           </div>
-        </div>
+        </Reveal>
 
       </div>
     </section>

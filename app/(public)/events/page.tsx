@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import EventCalendar from "@/components/sections/EventCalendar";
+import PatternLayer from "@/components/ui/PatternLayer";
 
 export const metadata: Metadata = {
   title: "Event Calendar",
@@ -11,6 +12,7 @@ export default function EventsPage() {
   return (
     <main>
       <section className="page-hero calendar-hero">
+        <PatternLayer tone="burgundy" from="right" />
         <div className="section-container page-hero-inner">
           <h1 className="page-hero-heading">Event Calendar</h1>
           <p className="page-hero-sub">

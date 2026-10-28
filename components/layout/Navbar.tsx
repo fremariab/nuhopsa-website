@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 const navLinks = [
   { label: "Home",             href: "/" },
@@ -20,9 +21,22 @@ export default function Navbar() {
   const [scrolled, setScrolled]  = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    let frame = 0;
+    const updateScrollState = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 20);
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(updateScrollState);
+    };
+
+    updateScrollState();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -51,7 +65,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`navbar-link ${pathname === link.href ? "navbar-link-active" : ""}`}
+                className={`navbar-link link-draw ${pathname === link.href ? "navbar-link-active" : ""}`}
               >
                 {link.label}
               </Link>
@@ -74,6 +88,7 @@ export default function Navbar() {
           </button>
 
         </div>
+        <ScrollProgress />
       </header>
 
       {/* Mobile menu overlay */}
@@ -86,7 +101,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`mobile-link ${pathname === link.href ? "mobile-link-active" : ""}`}
+              className={`mobile-link link-draw ${pathname === link.href ? "mobile-link-active" : ""}`}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}

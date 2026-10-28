@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PatternLayer from "@/components/ui/PatternLayer";
 
 const quickLinks = [
   { label: "About",            href: "/about" },
@@ -7,6 +8,8 @@ const quickLinks = [
   { label: "News",             href: "/news" },
   { label: "Gallery",          href: "/gallery" },
   { label: "Get Involved",     href: "/get-involved" },
+  { label: "Committee Message", href: "/committee-message" },
+  { label: "Class Representatives", href: "/class-representatives" },
   { label: "Donate",           href: "/donate" },
 ];
 
@@ -22,6 +25,7 @@ export default function Footer() {
 
   return (
     <footer className="footer-root">
+      <PatternLayer tone="deep" from="bottom" />
       <div className="section-container">
 
         {/* Top grid */}
@@ -57,7 +61,7 @@ export default function Footer() {
             <ul className="footer-link-list">
               {quickLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="footer-link">
+                  <Link href={l.href} className="footer-link link-draw">
                     {l.label}
                   </Link>
                 </li>
@@ -70,7 +74,7 @@ export default function Footer() {
             <span className="footer-col-heading">Get in touch</span>
             <ul className="footer-link-list">
               <li>
-                <a href="mailto:website4nuhopsa@gmail.com" className="footer-link">
+                <a href="mailto:website4nuhopsa@gmail.com" className="footer-link link-draw">
                   website4nuhopsa@gmail.com
                 </a>
               </li>
@@ -79,7 +83,7 @@ export default function Footer() {
             {/* 80th anniversary callout */}
             <div className="footer-anniv-card">
               <p className="footer-anniv-text">80th Anniversary of Holy Child School & College</p>
-              <Link href="/anniversary" className="footer-anniv-link">
+              <Link href="/anniversary" className="footer-anniv-link link-draw">
                 Learn more →
               </Link>
             </div>
@@ -93,8 +97,8 @@ export default function Footer() {
             © {year} NUHOPSA. All rights reserved.
           </span>
           <div className="footer-bottom-links">
-            <Link href="/privacy" className="footer-bottom-link">Privacy Policy</Link>
-            <Link href="/terms"   className="footer-bottom-link">Terms of Use</Link>
+            <Link href="/privacy" className="footer-bottom-link link-draw">Privacy Policy</Link>
+            <Link href="/terms"   className="footer-bottom-link link-draw">Terms of Use</Link>
           </div>
         </div>
 

@@ -1,8 +1,10 @@
 import Link from "next/link";
+import PatternLayer from "@/components/ui/PatternLayer";
 
 export default function DonateStrip() {
   return (
     <section className="donate-strip">
+      <PatternLayer tone="deep" from="left" />
       <div className="section-container donate-strip-inner">
 
         <div className="donate-strip-text">

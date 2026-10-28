@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import SiteIcon from "@/components/ui/SiteIcon";
+import { siteImages } from "@/lib/site-images";
+import PatternLayer from "@/components/ui/PatternLayer";
+import Reveal from "@/components/ui/Reveal";
+import CountUp from "@/components/ui/CountUp";
 
 export const metadata: Metadata = {
   title: "80th Anniversary",
@@ -45,26 +50,18 @@ const highlights = [
     description:
       "Alumni volunteers gave back to the local community in the spirit of service that defines the Holy Child ethos.",
   },
-];
+] as const;
 
 const sponsors = [
-  { tier: "Gold Sponsor",   name: "Sponsor Name Here" },
-  { tier: "Gold Sponsor",   name: "Sponsor Name Here" },
-  { tier: "Silver Sponsor", name: "Sponsor Name Here" },
-  { tier: "Silver Sponsor", name: "Sponsor Name Here" },
-  { tier: "Silver Sponsor", name: "Sponsor Name Here" },
-  { tier: "Bronze Sponsor", name: "Sponsor Name Here" },
+  { tier: "Gold Sponsor",   name: "Sponsor Name" },
+  { tier: "Gold Sponsor",   name: "Sponsor Name" },
+  { tier: "Silver Sponsor", name: "Sponsor Name" },
+  { tier: "Silver Sponsor", name: "Sponsor Name" },
+  { tier: "Silver Sponsor", name: "Sponsor Name" },
+  { tier: "Bronze Sponsor", name: "Sponsor Name" },
 ];
 
-// Placeholder gallery items
-const galleryItems = Array.from({ length: 6 }, (_, i) => ({
-  id: i + 1,
-  bg: i % 3 === 0
-    ? "var(--color-burgundy)"
-    : i % 3 === 1
-    ? "var(--color-burgundy-dark)"
-    : "var(--color-cream)",
-}));
+const galleryItems = siteImages.slice(0, 6);
 
 export default function AnniversaryPage() {
   return (
@@ -72,6 +69,7 @@ export default function AnniversaryPage() {
 
       {/* ── Hero ── */}
       <section className="anniv-hero">
+        <PatternLayer tone="burgundy" from="right" />
         <div className="section-container anniv-hero-inner">
           <div className="anniv-hero-content">
             <h1 className="anniv-hero-heading">
@@ -98,7 +96,7 @@ export default function AnniversaryPage() {
           <div className="anniv-hero-badge">
             <span className="anniv-badge-num">80</span>
             <span className="anniv-badge-top">Years</span>
-            <span className="anniv-badge-bot">1945 – 2025</span>
+            <span className="anniv-badge-bot">1946 – 2025</span>
           </div>
         </div>
       </section>
@@ -113,7 +111,7 @@ export default function AnniversaryPage() {
             { num: "2",    lbl: "Campuses celebrated" },
           ].map((s) => (
             <div key={s.lbl} className="anniv-stat">
-              <span className="anniv-stat-num">{s.num}</span>
+              <span className="anniv-stat-num"><CountUp value={s.num} /></span>
               <span className="anniv-stat-lbl">{s.lbl}</span>
             </div>
           ))}
@@ -123,21 +121,21 @@ export default function AnniversaryPage() {
       {/* ── Highlights ── */}
       <section className="section-light">
         <div className="section-container">
-          <div className="anniv-section-header">
+          <Reveal as="div" className="anniv-section-header">
             <h2 className="anniv-section-heading">Anniversary Highlights</h2>
             <p className="anniv-section-sub">
               A series of events that brought the Holy Child community together
               in celebration, gratitude, and joy.
             </p>
-          </div>
+          </Reveal>
 
           <div className="highlights-grid">
-            {highlights.map((h) => (
-              <div key={h.title} className="highlight-card">
+            {highlights.map((h, index) => (
+              <Reveal key={h.title} as="div" delay={index % 3} className="highlight-card">
                 <span className="highlight-icon"><SiteIcon name={h.icon} /></span>
                 <h3 className="highlight-title">{h.title}</h3>
                 <p className="highlight-desc">{h.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -146,18 +144,23 @@ export default function AnniversaryPage() {
       {/* ── Gallery preview ── */}
       <section className="section-cream">
         <div className="section-container">
-          <div className="anniv-section-header">
+          <Reveal as="div" className="anniv-section-header">
             <h2 className="anniv-section-heading">Photo Highlights</h2>
-          </div>
+          </Reveal>
 
           <div className="anniv-gallery-grid">
             {galleryItems.map((item) => (
               <div
-                key={item.id}
+                key={item.src}
                 className="anniv-gallery-item"
-                style={{ backgroundColor: item.bg }}
               >
-                <span className="anniv-gallery-placeholder">Photo</span>
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw"
+                  className="anniv-gallery-image"
+                />
               </div>
             ))}
           </div>
@@ -173,13 +176,13 @@ export default function AnniversaryPage() {
       {/* ── Thank you — sponsors ── */}
       <section className="section-light">
         <div className="section-container">
-          <div className="anniv-section-header">
+          <Reveal as="div" className="anniv-section-header">
             <h2 className="anniv-section-heading">Our Sponsors & Supporters</h2>
             <p className="anniv-section-sub">
               The 80th Anniversary celebrations would not have been possible
               without the generous support of our sponsors, donors, and volunteers.
             </p>
-          </div>
+          </Reveal>
 
           <div className="sponsors-grid">
             {sponsors.map((s, i) => (
@@ -205,6 +208,7 @@ export default function AnniversaryPage() {
 
       {/* ── Legacy CTA ── */}
       <section className="anniv-legacy">
+        <PatternLayer tone="deep" from="left" />
         <div className="section-container anniv-legacy-inner">
           <div className="anniv-legacy-text">
             <h2 className="anniv-legacy-heading">

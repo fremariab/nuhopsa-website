@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NewsClient from "./NewsClient";
+import PatternLayer from "@/components/ui/PatternLayer";
 
 export const metadata: Metadata = {
   title: "News & Announcements",
@@ -12,6 +13,7 @@ export default function NewsPage() {
     <main>
       {/* ── Page Hero ── */}
       <section className="page-hero">
+        <PatternLayer tone="burgundy" from="right" />
         <div className="section-container page-hero-inner">
           <h1 className="page-hero-heading">News & Announcements</h1>
           <p className="page-hero-sub">
